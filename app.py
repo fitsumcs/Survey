@@ -10,6 +10,7 @@ st.header('Survey Result of 2022')
 # Load Data from excel to dataframe 
 ex_file = 'Survey.xlsx'
 sheet_name = 'DATA'
+
 data_frame_survey = pd.read_excel(ex_file, 
                   sheet_name= sheet_name,
                   usecols='B:D',
@@ -25,8 +26,6 @@ data_frame_participant = pd.read_excel(ex_file,
 # Drop the null  values 
 data_frame_participant.dropna(inplace=True)
 
-# Display df 
-st.dataframe(data_frame_survey)
 
 
 # Chart of participant 
@@ -35,8 +34,7 @@ piChart = px.pie(data_frame_participant,
            values='Participants',
            names='Departments'
            )
-# Plot the chart 
-st.plotly_chart(piChart)
+
 
 # Display select selection 
 department = data_frame_survey['Department'].unique().tolist()
@@ -52,3 +50,9 @@ department_filter = st.multiselect  ('Department: ',
                      department,
                      default=department,
                      )
+
+# Display df 
+st.dataframe(data_frame_survey)
+# Plot the chart 
+st.plotly_chart(piChart)
+
