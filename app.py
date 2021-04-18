@@ -8,7 +8,7 @@ st.set_page_config(page_title="Survey Data")
 st.header('Survey Result of 2022')
 
 # Load Data from excel to dataframe 
-ex_file = 'Survey.xlsx'
+ex_file = 'data/Survey.xlsx'
 sheet_name = 'DATA'
 
 data_frame_survey = pd.read_excel(ex_file, 
