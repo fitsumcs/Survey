@@ -66,9 +66,14 @@ bar_chart = px.bar(df_grouped, x='Rating', y='Votes', text='Votes', color_discre
 st.plotly_chart(bar_chart)
 
 
+# Create two columns 
+col1, col2 = st.beta_columns(2)
 
+# Display Image 
+img = Image.open('img/here.jpeg')
+col1.image(img, caption='Look Your Data Here :)')
 # Display df 
-st.dataframe(data_frame_survey)
+col2.dataframe(data_frame_survey[mask])
 # Plot the chart 
 st.plotly_chart(piChart)
 
