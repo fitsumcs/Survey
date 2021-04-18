@@ -6,3 +6,22 @@ from PIL import Image
 # Set page title 
 st.set_page_config(page_title="Survey Data")
 st.header('Survey Result of 2022')
+
+# Load Data from excel to dataframe 
+ex_file = 'Survey.xlsx'
+sheet_name = 'DATA'
+data_frame_survey = pd.read_excel(ex_file, 
+                  sheet_name= sheet_name,
+                  usecols='B:D',
+                  header= 3
+                  )
+# participant's 
+data_frame_participant = pd.read_excel(ex_file, 
+                  sheet_name= sheet_name,
+                  usecols='F:G',
+                  header= 3
+                  )
+
+# Display df 
+st.dataframe(data_frame_survey)
+st.dataframe(data_frame_participant)
