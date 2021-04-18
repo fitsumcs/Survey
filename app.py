@@ -51,6 +51,14 @@ department_filter = st.multiselect  ('Department: ',
                      default=department,
                      )
 
+# Creating filter 
+mask = (data_frame_survey['Age'].between(*age_filter)) & (data_frame_survey['Department'].isin(department_filter))
+result = data_frame_survey[mask].shape[0]
+st.markdown(f'* Number of Survey Takes : {result} *')
+
+
+
+
 # Display df 
 st.dataframe(data_frame_survey)
 # Plot the chart 
