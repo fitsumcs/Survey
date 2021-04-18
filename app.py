@@ -61,7 +61,9 @@ df_grouped = data_frame_survey[mask].groupby(by=['Rating']).count()[['Age']]
 df_grouped = df_grouped.rename(columns={'Age':'Votes'})
 df_grouped = df_grouped.reset_index()
 
-
+# draw bar chart 
+bar_chart = px.bar(df_grouped, x='Rating', y='Votes', text='Votes', color_discrete_sequence=['#F63366']*len(df_grouped),template='plotly_white')
+st.plotly_chart(bar_chart)
 
 
 
