@@ -24,4 +24,13 @@ data_frame_participant = pd.read_excel(ex_file,
 
 # Display df 
 st.dataframe(data_frame_survey)
-st.dataframe(data_frame_participant)
+
+
+# Chart of participant 
+piChart = px.pie(data_frame_participant,
+           title="Total Number of Participants",
+           values='Participants',
+           names='Departments'
+           )
+# Plot the chart 
+st.plotly_chart(piChart)
