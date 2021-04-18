@@ -22,6 +22,9 @@ data_frame_participant = pd.read_excel(ex_file,
                   header= 3
                   )
 
+# Drop the null  values 
+data_frame_participant.dropna(inplace=True)
+
 # Display df 
 st.dataframe(data_frame_survey)
 
