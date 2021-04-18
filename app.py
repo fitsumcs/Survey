@@ -47,3 +47,8 @@ age_filter = st.slider('Age ',
                      max_value=max(ages),
                      value=(min(ages),max(ages))
                      )
+# Department filter 
+department_filter = st.multiselect  ('Department: ', 
+                     department,
+                     default=department,
+                     )
