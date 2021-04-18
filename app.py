@@ -56,6 +56,12 @@ mask = (data_frame_survey['Age'].between(*age_filter)) & (data_frame_survey['Dep
 result = data_frame_survey[mask].shape[0]
 st.markdown(f'* Number of Survey Takes : {result} *')
 
+# Grouping the data 
+df_grouped = data_frame_survey[mask].groupby(by=['Rating']).count()[['Age']]
+df_grouped = df_grouped.rename(columns={'Age':'Votes'})
+df_grouped = df_grouped.reset_index()
+
+
 
 
 
