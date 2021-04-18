@@ -37,3 +37,13 @@ piChart = px.pie(data_frame_participant,
            )
 # Plot the chart 
 st.plotly_chart(piChart)
+
+# Display select selection 
+department = data_frame_survey['Department'].unique().tolist()
+ages = data_frame_survey['Age'].unique().tolist()
+
+age_filter = st.slider('Age ', 
+                     min_value=min(ages),
+                     max_value=max(ages),
+                     value=(min(ages),max(ages))
+                     )
